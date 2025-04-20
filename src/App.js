@@ -1,10 +1,8 @@
 import './App.css'
-import Data from './components/Data'
+import DataVisualizer from './components/DataVisualizer'
 
 const App = () => {
-    const data1 = [
-        1, 2, 3
-    ]
+    const data1 = [1, 2, 3]
     const data2 = [
         1, 2, 3,
         [1, 2, 3],
@@ -18,13 +16,12 @@ const App = () => {
         [7, 8, 9, 12312, 1, 23, 1, 23, 2, 2]
     ]
     const data4 = {
-        'name': 'John',
-        'age': 30,
-        'isAdmin': false,
-        'courses': ['html', 'css', 'js'],
-        'wife': null
+        name: 'John',
+        age: 30,
+        isAdmin: false,
+        courses: ['html', 'css', 'js'],
+        wife: null
     }
-
     const data5 = {
         name: 'John',
         age: 30,
@@ -37,18 +34,26 @@ const App = () => {
             }
         }
     }
-    const data6 = 1
+    const data6 = 'dasdadas'
+
+    const allDatas = [
+        data1, data2, data3, data4,
+        data5
+        , data6
+    ]
+
     return (
         <>
             <h1 className="h1">Визуализация данных</h1>
-            {/*<Data data={data1}/>*/}
-            <Data data={data2}/>
-            {/*<Data data={data3}/>*/}
-            <Data data={data4}/>
-            {/*<Data data={data5}/>*/}
-            <Data data={data6}/>
+
+            {allDatas.map((data, index) => (
+                <div key={index}>
+                    <DataVisualizer data={data}/>
+                </div>
+            ))}
         </>
     )
 }
 
 export default App
+
